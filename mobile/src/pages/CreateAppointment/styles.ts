@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 import {FlatList} from 'react-native';
-import {RectButton, TouchableOpacity} from 'react-native-gesture-handler';
+import {RectButton} from 'react-native-gesture-handler';
 import {Provider} from '.';
+
 export const Container = styled.View`
   flex: 1;
 `;
-
+export const Content = styled.ScrollView``;
 export const Header = styled.View`
   padding: 24px;
   background: #28262e;
@@ -81,38 +82,51 @@ export const Schedule = styled.View`
   padding: 24px 0 16px;
 `;
 export const Section = styled.View`
-  margin-bottom: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
+export const SectionContent = styled.ScrollView.attrs({
+  contentContainerStyle: {paddingHorizontal: -10},
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+})``;
 
 export const SectionTitle = styled.Text`
   font-size: 18px;
   color: #999591;
   font-family: 'RobotoSlab-Regular';
-  margin: 0 24px 12px;
+  margin: 0 4px 12px;
 `;
-export const CalendarBackgroud = styled.View`
-  height: 30px;
+export const Hour = styled(RectButton)<{
+  available: boolean;
+  selected: boolean;
+}>`
+  padding: 12px;
+  background: ${(props) => (props.selected ? '#ff9000' : '#3e3b47')};
+  border-radius: 10px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  opacity: ${(props) => (props.available ? 1 : 0.3)};
 `;
-export const CalendarBackgroudTitle = styled.Text`
-  font-size: 18px;
-  color: #999591;
+
+export const HourText = styled.Text<{
+  selected: boolean;
+}>`
+  color: ${(props) => (props.selected ? '#232129' : '#f4ede8')};
   font-family: 'RobotoSlab-Regular';
-  margin-top: 5px;
-  margin-left: 100px;
-  margin-right: 100px;
-  text-align: center;
+  font-size: 16px;
+`;
+export const CreateAppointmentButton = styled(RectButton)`
+  height: 50px;
+  background: #ff9000;
+  border-radius: 10px;
+  margin: 0 24px 24px;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const ArrowLeft = styled.View`
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  left: 0;
-`;
-
-export const ArrowRight = styled.View`
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  right: 0;
+export const CreateAppointmentButtonText = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  color: #232129;
+  font-size: 18px;
 `;

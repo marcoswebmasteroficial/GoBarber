@@ -1,9 +1,0 @@
- docker ps -a  -- lista container
- docker start ca61143a9592  -- iniciar container progresql
- docker start d61321028e55  -- iniciar container mongodb
- docker start a4117b6db653  -- iniciar container redis
-
-
- docker image rmi <id-imagem> -- remover imagem docker
- docker container rm <id-container> -- remover container docker
-
